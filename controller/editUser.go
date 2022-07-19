@@ -17,16 +17,18 @@ func EditUser(c *gin.Context) {
 		c.JSON(400, gin.H{
 			"message": "editUser binding error",
 		})
+		log.Println(err)
 		return
 	}
 
 	log.Println(user.Id, user.Pw)
 
-	err = db.DB.Omit("pw").Save(user).Error
+	err = db.DB.Save(user).Error
 	if err != nil {
 		c.JSON(400, gin.H{
 			"message": "editUser edit error",
 		})
+		log.Println(err)
 		return
 	}
 

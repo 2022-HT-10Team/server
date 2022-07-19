@@ -2,6 +2,7 @@ package controller
 
 import (
 	"2022_07_HT/modules"
+	"log"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,6 +14,7 @@ func UploadImg(c *gin.Context) {
 		c.JSON(400, gin.H{
 			"message": "Upload IMG formFile Error",
 		})
+		log.Println(err)
 		return
 	}
 
@@ -23,6 +25,7 @@ func UploadImg(c *gin.Context) {
 		c.JSON(400, gin.H{
 			"message": "Upload IMG makeFile Error",
 		})
+		log.Println(err)
 		return
 	}
 

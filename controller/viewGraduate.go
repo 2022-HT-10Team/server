@@ -3,6 +3,7 @@ package controller
 import (
 	db "2022_07_HT/database"
 	"2022_07_HT/models"
+	"log"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,6 +17,7 @@ func ViewGraduate(c *gin.Context) {
 		c.JSON(400, gin.H{
 			"message": "view graduate find error",
 		})
+		log.Println(err)
 		return
 	}
 

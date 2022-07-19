@@ -4,6 +4,7 @@ import (
 	db "2022_07_HT/database"
 	"2022_07_HT/helper"
 	"2022_07_HT/models"
+	"log"
 
 	"github.com/gin-gonic/gin"
 )
@@ -17,6 +18,7 @@ func SignUp(c *gin.Context) {
 		c.JSON(400, gin.H{
 			"message": "login binding error",
 		})
+		log.Println(err)
 		return
 	}
 
@@ -25,6 +27,7 @@ func SignUp(c *gin.Context) {
 		c.JSON(400, gin.H{
 			"message": "id already exist",
 		})
+		log.Println(err)
 		return
 	}
 
@@ -33,6 +36,7 @@ func SignUp(c *gin.Context) {
 		c.JSON(400, gin.H{
 			"message": "signUp pw hashing error",
 		})
+		log.Println(err)
 		return
 	}
 
@@ -41,6 +45,7 @@ func SignUp(c *gin.Context) {
 		c.JSON(400, gin.H{
 			"message": "Create user Error",
 		})
+		log.Println(err)
 		return
 	}
 

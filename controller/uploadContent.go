@@ -3,6 +3,7 @@ package controller
 import (
 	db "2022_07_HT/database"
 	"2022_07_HT/models"
+	"log"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,6 +17,7 @@ func UploadContent(c *gin.Context) {
 		c.JSON(400, gin.H{
 			"message": "upload content binding error",
 		})
+		log.Println(err)
 		return
 	}
 
@@ -24,6 +26,7 @@ func UploadContent(c *gin.Context) {
 		c.JSON(400, gin.H{
 			"message": "upload content upload error",
 		})
+		log.Println(err)
 		return
 	}
 

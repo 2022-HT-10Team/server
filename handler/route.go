@@ -15,8 +15,11 @@ func Route(e *gin.Engine) {
 	e.POST("/edituser", controller.EditUser)
 	e.POST("/uploadimg", controller.UploadImg)
 	e.POST("/uploadcontent", controller.UploadContent)
+	e.POST("/viewmyboard", controller.ViewMyBoard)
 
 	e.GET("/viewstudent", controller.ViewStudent)
-	e.GET("/viewgraduate", controller.ViewStudent)
+	e.GET("/viewboard", controller.ViewBoard)
+	e.GET("/userdata", controller.UserData)
+	e.GET("/viewgraduate", controller.ViewGraduate)
 
 }

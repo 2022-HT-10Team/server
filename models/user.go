@@ -6,8 +6,8 @@ type User struct {
 	Name       string `json:"name"`
 	Isstudent  string `json:"isStudent"`
 	Department string `json:"department"`
-	Age        int    `json:"age"`
 	Cardinal   string `json:"cardinal"`
+	Belong     string `json:"belong"`
 
 	UserBoard []Board `gorm:"foreignKey:UserId;association_foreignkey:Id"`
 }
