@@ -3,7 +3,8 @@ package helper
 import (
 	"time"
 
-	"github.com/golang-jwt/jwt"
+	"github.com/dgrijalva/jwt-go"
+	_ "github.com/golang-jwt/jwt"
 )
 
 func CreateJWT(id string) (string, error) {

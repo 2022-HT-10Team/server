@@ -23,7 +23,7 @@ func EditUser(c *gin.Context) {
 
 	log.Println(user.Id, user.Pw)
 
-	err = db.DB.Save(user).Error
+	err = db.DB.Omit("Pw", "Name", "IsStudent", "Cardinal").Save(user).Error
 	if err != nil {
 		c.JSON(400, gin.H{
 			"message": "editUser edit error",

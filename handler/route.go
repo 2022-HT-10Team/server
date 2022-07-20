@@ -2,6 +2,7 @@ package handler
 
 import (
 	"2022_07_HT/controller"
+	"2022_07_HT/middleware"
 
 	"github.com/gin-gonic/gin"
 )
@@ -15,7 +16,11 @@ func Route(e *gin.Engine) {
 	e.POST("/edituser", controller.EditUser)
 	e.POST("/uploadimg", controller.UploadImg)
 	e.POST("/uploadcontent", controller.UploadContent)
-	e.POST("/viewmyboard", controller.ViewMyBoard)
+	//	e.POST("/viewmyboard", controller.ViewMyBoard)
+
+	privateRouter := e.Group("/viewmyboard")
+	privateRouter.Use(middleware.JwtTokenCheck)
+	privateRouter.Use(middleware.PrivateACLCheck).GET("/:uid/:pid", middleware.Private)
 
 	e.GET("/viewstudent", controller.ViewStudent)
 	e.GET("/viewboard", controller.ViewBoard)

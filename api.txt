@@ -39,3 +39,6 @@ userid, contents 	contents에 내용
 학생 리스트 가져오기 : /viewstudent - GET
 졸업생 리스트 가져오기 : /viewgraduate - GET
 게시판 리스트 가져오기 : /viewboard - GET
+
+내 게시판 가져오기 : /viewmyboard - Post
+id

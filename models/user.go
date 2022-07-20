@@ -9,11 +9,12 @@ type User struct {
 	Cardinal   string `json:"cardinal"`
 	Belong     string `json:"belong"`
 
-	UserBoard []Board `gorm:"foreignKey:UserId;association_foreignkey:Id"`
+	//UserBoard []Board `gorm:"foreignKey:UserId;association_foreignkey:Id"`
 }
 
 type Board struct {
 	Num     int    `gorm:"AUTO_INCREMENT;PRIMARY_KEY;NOT_NULL"`
 	UserId  string `json:"userid" gorm:"NOT_NULL"`
-	Content string `json:"contents" gorm:"NOT_NULL"`
+	Title   string `json:"title" gorm:"NOT_NULL"`
+	Content string `json:"content" gorm:"NOT_NULL"`
 }
