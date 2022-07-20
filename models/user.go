@@ -14,7 +14,7 @@ type User struct {
 
 type Board struct {
 	Num     int    `gorm:"AUTO_INCREMENT;PRIMARY_KEY;NOT_NULL"`
-	UserId  string `json:"userid" gorm:"NOT_NULL"`
+	Userid  string `json:"userid" gorm:"NOT_NULL"`
 	Title   string `json:"title" gorm:"NOT_NULL"`
 	Content string `json:"content" gorm:"NOT_NULL"`
 }

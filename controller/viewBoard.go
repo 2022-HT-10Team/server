@@ -13,7 +13,7 @@ type joinTable struct {
 	Department string `json:"department"`
 	Cardinal   string `json:"cardinal"`
 	Num        int    `gorm:"AUTO_INCREMENT;PRIMARY_KEY;NOT_NULL"`
-	UserId     string `json:"userid" gorm:"NOT_NULL"`
+	Userid     string `json:"userid" gorm:"NOT_NULL"`
 	Title      string `json:"title" gorm:"NOT_NULL"`
 	Content    string `json:"content" gorm:"NOT_NULL"`
 }
@@ -45,7 +45,7 @@ func ViewBoard(c *gin.Context) {
 
 	for i := 0; i < len(board); i++ {
 		for j := 0; j < len(user); j++ {
-			if board[i].UserId == user[j].Id {
+			if board[i].Userid == user[j].Id {
 				set++
 			}
 		}
@@ -55,10 +55,13 @@ func ViewBoard(c *gin.Context) {
 
 	set = 0
 
+	log.Println("boardUserid", board[0].Userid)
+	log.Println("id", user[0].Id)
+
 	for i := 0; i < len(board); i++ {
 		for j := 0; j < len(user); j++ {
-			if board[i].UserId == user[j].Id {
-				joinedTable[set].UserId = board[i].UserId
+			if board[i].Userid == user[j].Id {
+				joinedTable[set].Userid = board[i].Userid
 				joinedTable[set].Title = board[i].Title
 				joinedTable[set].Content = board[i].Content
 				joinedTable[set].Name = user[j].Name
@@ -68,6 +71,8 @@ func ViewBoard(c *gin.Context) {
 			}
 		}
 	}
+
+	log.Println(joinedTable)
 
 	c.JSON(200, gin.H{
 		"message": "view board sunccess",
